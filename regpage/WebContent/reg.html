@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration page</title>
+<script> 
+function reg()								 
+{ 
+	var name = document.forms["f1"]["Name"];
+	var rno= document.forms["f1"]["Rno"]; 
+	var email = document.forms["f1"]["EMail"]; 
+	var phone = document.forms["f1"]["Phone"];
+	var branch = document.forms["f1"]["Branch"];  
+	var subject = document.forms["f1"]["Subject"];  
+	if (name.value == "")								 
+	{ 
+		alert("Please enter your name"); 
+		return false; 
+	} 
+
+	if (rno.value == "")							 
+	{ 
+		alert("Please enter your valid rollno of 10 digits"); 
+		return false; 
+	} 
+	
+	if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(email.value))								 
+	{ 
+		alert("Please enter a email address"); 
+		return false; 
+	} 
+	if (phone.value == "")						 
+	{ 
+		alert("Please enter your  valid phone number of 10 digits"); 
+		return false; 
+	}
+    if (branch.selectedIndex < 1)		 
+	{ 
+		alert("Please enter your branch"); 
+		return false; 
+	} 	
+	if (subject.selectedIndex < 1)		 
+	{ 
+		alert("Please enter your course"); 
+		return false; 
+	} 
+	alert("successfully registered");
+  	return true; 
+}</script> 
+<style>  
+form {										 
+	margin: auto; 									 
+	width: 600px;
+}
+</style></head> 
+<body>
+<h1 style="text-align: center"> REGISTRATION FORM </h1>		 
+<form name="f1" onsubmit="return reg()" method="post"> 
+	
+	<p>Name: <input type="text" size=25 name="Name"> </p><br>	 
+	<p>Rollno: <input type="text" size=10 name="Rno"> </p><br> 
+	<p>E-mail Address: <input type="text" size=65 name="EMail"> </p><br> 
+	<p>phone: <input type="text" size=65 name="Phone"> </p><br> 	
+	<p>SELECT YOUR BRANCH 
+		<select name="Branch"> 
+			<option>CSE</option> 
+			<option>IT</option> 
+			<option>other</option> 
+		</select></p><br><br>  
+	<p>SELECT YOUR COURSE 
+		<select name="Subject"> 
+			<option>ML</option> 
+			<option>AI</option> 
+			<option>cloud</option> 
+		</select></p><br><br>  
+	<p><input type="submit" value="Register" name="Submit">	 
+		<input type="reset" value="Reset" name="Reset"> 
+	</p>		 
+</form> 
+</body> 
+</html> 
